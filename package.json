@@ -1,0 +1,19 @@
+{
+  "name": "@bluejay/schema",
+  "version": "1.0.0",
+  "description": "Typed, programmatic JSON schemas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require ./node_modules/ts-node/register --require ./test/setup test/**/**.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluebirds-blue-jay/schema.git"
+  },
+  "author": "Sylvain Estevez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bluebirds-blue-jay/schema/issues"
+  },
+  "homepage": "https://github.com/bluebirds-blue-jay/schema#readme"
+}
