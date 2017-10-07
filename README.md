@@ -23,7 +23,7 @@ Writing JSON schemas for large applications can be pretty time consuming. Having
 
 This module has been created with the intention of reducing the overhead of describing JSON by providing simple wrappers and utilities to manage common use cases with easiness.
 
-It is also fully typed and will allow to benefit from your favorite IDE's auto-completion, making typing a lot easier.
+It is also fully typed and will allow you to benefit from your favorite IDE's auto-completion, making typing a lot easier.
 
 ## Usage
 
@@ -138,4 +138,4 @@ schema = {
 
 ## Documentation
 
-See [Github Pages]().
+See [Github Pages](https://bluebirds-blue-jay.github.io/schema/).
