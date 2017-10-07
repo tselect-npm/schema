@@ -4,7 +4,8 @@
   "description": "Typed, programmatic JSON schemas.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require ./node_modules/ts-node/register --require ./test/setup test/**/**.test.js"
+    "test": "mocha --require ./node_modules/ts-node/register --require ./test/setup test/**/**.test.js",
+    "docs": "typedoc --out docs --mode file --excludeExternals --excludePrivate ./index.ts"
   },
   "repository": {
     "type": "git",
