@@ -1,17 +1,8 @@
+import { JSONSchemaType } from '../constants/json-schema-type';
+
 export type TJSONSchema = {
   $ref?: string;
-  /////////////////////////////////////////////////
-  // Schema Metadata
-  /////////////////////////////////////////////////
-  /**
-   * This is important because it tells refs where
-   * the root of the document is located
-   */
   id?: string;
-  /**
-   * It is recommended that the meta-schema is
-   * included in the root of any JSON Schema
-   */
   $schema?: string;
   /**
    * Title of the schema
@@ -47,7 +38,7 @@ export type TJSONSchema = {
    * [string, number, object, array, boolean, null]
    * or an array of the acceptable types
    */
-  type?: string | string[];
+  type?: JSONSchemaType | JSONSchemaType[];
 
   allOf?: TJSONSchema[];
   anyOf?: TJSONSchema[];

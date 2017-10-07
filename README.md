@@ -14,13 +14,16 @@ Types, programmatic JSON schemas.
 ## Usage
 
 ```typescript
-import { object, string } from '@bluejay/schematic`;
+import { object, string } from '@bluejay/schematic';
 
 const schema = object({
-  foo: string({ nullable })
+  foo: string()
 });
 
-await schema.validate();
+schema.validate({ foo: true }, { required: ['foo'] }).then(result => {
+  result.isValid(); // false
+  result.errors; // [...]
+});
 ```
 
 ## Documentation
