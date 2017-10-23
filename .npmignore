@@ -1,3 +1,8 @@
 docs/
 node_modules/
 test/
+.idea/
+*.ts
+dts/
+!dts/**/*.d.ts
+tsconfig.json

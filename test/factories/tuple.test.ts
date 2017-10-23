@@ -1,4 +1,4 @@
-import { Schema } from '../../';
+import * as Schema from '../../';
 
 describe('tuple()', function () {
   it('should create a tuple schema with no options', () => {

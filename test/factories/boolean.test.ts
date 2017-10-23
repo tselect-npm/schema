@@ -1,4 +1,4 @@
-import { Schema } from '../../';
+import * as Schema from '../../';
 
 describe('boolean()', function () {
   it('should create a boolean schema with no options', () => {

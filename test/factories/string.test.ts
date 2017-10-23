@@ -1,4 +1,4 @@
-import { Schema } from '../../';
+import * as Schema from '../../';
 
 describe('string()', function () {
   it('should create a string schema with no options', () => {

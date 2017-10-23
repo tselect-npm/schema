@@ -1,4 +1,4 @@
-import { Schema } from '../../';
+import * as Schema from '../../';
 
 describe('enumeration()', function () {
   it('should create an enumeration schema from a string enum', () => {

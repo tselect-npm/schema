@@ -1,4 +1,4 @@
-import { Schema } from '../../';
+import * as Schema from '../../';
 
 describe('list()', function () {
   it('should create a list schema with no options', () => {

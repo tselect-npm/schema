@@ -1,4 +1,4 @@
-import { Schema } from '../../';
+import * as Schema from '../../';
 
 describe('dateTime()', function () {
   it('should create a date time schema with no options', () => {

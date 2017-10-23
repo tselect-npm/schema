@@ -1,4 +1,4 @@
-import { Schema } from '../../';
+import * as Schema from '../../';
 
 describe('omitProperties()', function () {
   it('should return a cloned object schema with filtered properties', () => {

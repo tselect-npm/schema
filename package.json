@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --require ./node_modules/ts-node/register --require ./test/setup test/**/**.test.js",
-    "docs": "typedoc --out docs --mode file --excludeExternals --excludePrivate ./index.ts"
+    "docs": "typedoc --out docs --mode file --excludeExternals --excludePrivate ./index.ts",
+    "prepare": "rm -rf dts && tsc && tsc --outDir dts -d"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bluebirds-blue-jay/schema.git"
   },
   "author": "Sylvain Estevez",
+  "typings": "./dts/index.d.ts",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bluebirds-blue-jay/schema/issues"

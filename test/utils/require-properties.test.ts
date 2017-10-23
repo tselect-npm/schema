@@ -1,4 +1,4 @@
-import { Schema } from '../../';
+import * as Schema from '../../';
 
 describe('requireProperties()', function () {
   it('should return a cloned schema', () => {

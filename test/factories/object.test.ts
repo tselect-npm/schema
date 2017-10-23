@@ -1,4 +1,4 @@
-import { Schema } from '../../';
+import * as Schema from '../../';
 
 describe('object()', function () {
   it('should create an object schema with no options', () => {

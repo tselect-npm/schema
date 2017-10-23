@@ -1,4 +1,4 @@
-import { Schema } from '../../';
+import * as Schema from '../../';
 
 describe('email()', function () {
   it('should create an email schema with no options', () => {

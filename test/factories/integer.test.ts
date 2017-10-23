@@ -1,4 +1,4 @@
-import { Schema } from '../../';
+import * as Schema from '../../';
 
 describe('integer()', function () {
   it('should create an integer schema with no options', () => {

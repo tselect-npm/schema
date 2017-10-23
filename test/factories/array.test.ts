@@ -1,4 +1,4 @@
-import { Schema } from '../../';
+import * as Schema from '../../';
 
 describe('array()', function () {
   it('should create an array schema with no options', () => {
