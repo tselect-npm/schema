@@ -4,8 +4,9 @@ import { TJSONSchema } from '../types/json-schema';
 import { TOptions } from '../types/options';
 import { JSONSchemaType } from '../constants/json-schema-type';
 
-export function object(propertiesOrOptions: { [property: string]: TJSONSchema } | TOptions<TObjectJSONSchema>, options: TOptions<TObjectJSONSchema> = {}): TObjectJSONSchema {
-  const properties = !options.properties ? propertiesOrOptions : (<TObjectJSONSchema>propertiesOrOptions).properties;
-  options = properties === propertiesOrOptions ? options : <TOptions<TObjectJSONSchema>>propertiesOrOptions;
-  return makeSchema<TObjectJSONSchema>(Object.assign(options, { properties: properties, additionalProperties: options.additionalProperties || false }), JSONSchemaType.OBJECT);
+export function object(properties: { [property: string]: TJSONSchema }, options: TOptions<TObjectJSONSchema> = {}): TObjectJSONSchema {
+  if (options.properties) {
+    properties = options.properties;
+  }
+  return makeSchema<TObjectJSONSchema>(Object.assign(options, { properties, additionalProperties: options.additionalProperties || false }), JSONSchemaType.OBJECT);
 }

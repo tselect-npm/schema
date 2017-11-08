@@ -1,4 +1,7 @@
 import * as Schema from '../../';
+import * as AJV from 'ajv';
+
+const ajv = new AJV();
 
 describe('object()', function () {
   it('should create an object schema with no options', () => {
@@ -17,6 +20,7 @@ describe('object()', function () {
     const schema = Schema.object({ foo: Schema.string() }, {
       nullable: true
     });
+    expect(() => ajv.compile(schema)).to.not.throw();
     expect(schema).to.deep.equal({
       type: ['object', 'null'],
       additionalProperties: false,
@@ -36,7 +40,7 @@ describe('object()', function () {
       definitions: { foo: Schema.string() },
       patternProperties: { 'foo[a-z]*': Schema.string() }
     });
-
+    expect(() => ajv.compile(schema)).to.not.throw();
     expect(schema).to.deep.equal({
       type: 'object',
       properties: {

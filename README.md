@@ -106,7 +106,7 @@ Any JSON schema you already wrote can be manipulated using this module.
 ```typescript
 import { object } from '@bluejay/schema';
 
-const schema = object({
+const schema = object({}, {
   type: 'object',
   required: ['foo'],
   additionalProperties: true,

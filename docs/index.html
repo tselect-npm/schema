@@ -80,7 +80,7 @@
 				<h2 id="motivation">Motivation</h2>
 				<p>Writing JSON schemas for large applications can be pretty time consuming. Having to type double quotes and &quot;additionalProperties&quot; for each new object by hand is no fun.</p>
 				<p>This module has been created with the intention of reducing the overhead of describing JSON by providing simple wrappers and utilities to manage common use cases with easiness.</p>
-				<p>It is also fully typed and will allow to benefit from your favorite IDE&#39;s auto-completion, making typing a lot easier.</p>
+				<p>It is also fully typed and will allow you to benefit from your favorite IDE&#39;s auto-completion, making typing a lot easier.</p>
 				<h2 id="usage">Usage</h2>
 				<h3 id="building-a-schema">Building a schema</h3>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { object, email } <span class="hljs-keyword">from</span> <span class="hljs-string">'@bluejay/schema'</span>;
@@ -140,7 +140,7 @@
 				<p>Any JSON schema you already wrote can be manipulated using this module.</p>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { object } <span class="hljs-keyword">from</span> <span class="hljs-string">'@bluejay/schema'</span>;
 
-<span class="hljs-keyword">const</span> schema = object({
+<span class="hljs-keyword">const</span> schema = object({}, {
   <span class="hljs-keyword">type</span>: <span class="hljs-string">'object'</span>,
   required: [<span class="hljs-string">'foo'</span>],
   additionalProperties: <span class="hljs-literal">true</span>,
@@ -166,7 +166,7 @@
 };
 </code></pre>
 				<h2 id="documentation">Documentation</h2>
-				<p>See <a href="">Github Pages</a>.</p>
+				<p>See <a href="https://bluebirds-blue-jay.github.io/schema/">Github Pages</a>.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -211,6 +211,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#tstringjsonschema" class="tsd-kind-icon">TStringJSONSchema</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#ajv" class="tsd-kind-icon">ajv</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#any" class="tsd-kind-icon">any</a>
