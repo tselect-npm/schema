@@ -4,5 +4,5 @@ import { makeSchema } from '../utils/make-schema';
 import { JSONSchemaType } from '../constants/json-schema-type';
 
 export function array(options: TOptions<TArrayJSONSchema> = {}) {
-  return makeSchema(Object.assign(options, { additionalItems: options.additionalItems || false }), JSONSchemaType.ARRAY);
+  return makeSchema<TArrayJSONSchema>(Object.assign(options, { additionalItems: options.additionalItems || false }), JSONSchemaType.ARRAY);
 }
