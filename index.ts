@@ -12,6 +12,7 @@ export { number } from './src/factories/number';
 export { object } from './src/factories/object';
 export { string } from './src/factories/string';
 export { tuple } from './src/factories/tuple';
+export { uuid } from './src/factories/uuid';
 export { anyOf } from './src/factories/any-of';
 export { oneOf } from './src/factories/one-of';
 export { allOf } from './src/factories/all-of';
