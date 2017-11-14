@@ -4,10 +4,10 @@ import * as Lodash from 'lodash';
 
 export function pickProperties(schema: TObjectJSONSchema, properties: string[]): TObjectJSONSchema {
   const cloned = clone(schema);
-  if (schema.properties) {
+  if (cloned.properties) {
     Object.assign(cloned, { properties: Lodash.pick(cloned.properties, properties) });
   }
-  if (schema.required) {
+  if (cloned.required) {
     Object.assign(cloned, { required: Lodash.intersection(cloned.required, properties) })
   }
   return cloned;
