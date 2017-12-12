@@ -19,4 +19,22 @@ describe('enumeration()', function () {
   it('should throw for an unsupported type', () => {
     expect(() => Schema.enumeration([new Date()])).to.throw(/unsupported/i);
   });
+  describe('nullable', function () {
+    it('should add null to a nullable enumeration', () => {
+      const schema = Schema.enumeration([1, 2], { nullable: true });
+      expect(schema).to.deep.equal({
+        type: ['number', 'null'],
+        enum: [1, 2, null],
+        nullable: true
+      });
+    });
+    it('should to add null to a not nullable enumeration', () => {
+      const schema = Schema.enumeration([1, 2], { nullable: false });
+      expect(schema).to.deep.equal({
+        type: ['number'],
+        enum: [1, 2],
+        nullable: false
+      });
+    });
+  });
 });
