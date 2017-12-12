@@ -1,7 +1,5 @@
 import { JSONSchemaType } from '../constants/json-schema-type';
 import { any } from './any';
-import { number } from './number';
-import { string } from './string';
 import { TOptions } from '../types/options';
 import { TJSONSchema } from '../types/json-schema';
 import { TNumberJSONSchema } from '../types/number-json-schema';
@@ -9,6 +7,10 @@ import { TStringJSONSchema } from '../types/string-json-schema';
 
 export function enumeration<E>(enumOrValues: E | (string | number | null)[], options: TOptions<TJSONSchema | TNumberJSONSchema | TStringJSONSchema> = {}): any {
   const values = Object.values(enumOrValues);
+  if (options.nullable) {
+    values.push(null);
+  }
+
   const types: Set<JSONSchemaType> = new Set();
   const finalOptions: TJSONSchema | TNumberJSONSchema | TStringJSONSchema = Object.assign(options, { enum: values });
 
