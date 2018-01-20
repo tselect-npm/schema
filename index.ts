@@ -28,6 +28,7 @@ export { TStringJSONSchema } from './src/types/string-json-schema';
 export { cleanOptions } from './src/utils/clean-options';
 export { clone } from './src/utils/clone';
 export { cloneWith } from './src/utils/clone-with';
+export { mergeWith } from './src/utils/merge-with';
 export { makeSchema } from './src/utils/make-schema';
 export { nullable } from './src/utils/nullable';
 export { omitProperties } from './src/utils/omit-properties';
