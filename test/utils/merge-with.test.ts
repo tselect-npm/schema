@@ -12,13 +12,14 @@ describe('mergeWith()', function () {
     const merged = Schema.mergeWith(schema, Schema.object({
       bar: Schema.string()
     }, {
+      required: ['bar'],
       additionalProperties: true,
       nullable: true
     }));
 
     expect(merged).to.deep.equal({
       type: ['object', 'null'],
-      required: ['foo'],
+      required: ['foo', 'bar'],
       additionalProperties: true,
       properties: {
         foo: { type: 'string' },
