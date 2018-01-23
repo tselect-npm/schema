@@ -35,3 +35,4 @@ export { omitProperties } from './src/utils/omit-properties';
 export { pickProperties } from './src/utils/pick-properties';
 export { requireProperties } from './src/utils/require-properties';
 export { toStringRegExp } from './src/utils/to-string-reg-exp';
+export { isJSONSchema } from './src/utils/is-json-schema';
