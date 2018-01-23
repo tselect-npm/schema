@@ -1,7 +1,7 @@
 import * as Lodash from 'lodash';
 import { TJSONSchema } from '../types/json-schema';
 
-export function isJSONSchema(obj: {}): obj is TJSONSchema {
+export function isJSONSchemaLike(obj: {}): obj is TJSONSchema {
   return Lodash.isPlainObject(obj) && (
     `type` in obj
     ||

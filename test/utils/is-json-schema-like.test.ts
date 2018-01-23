@@ -1,6 +1,6 @@
 import * as Schema from '../../';
 
-describe('isJSONSchema()', function () {
+describe('isJSONSchemaLike()', function () {
   it('should return true for a simple object JSONSchema', () => {
     const schema = Schema.object({
       foo: Schema.string()
@@ -9,7 +9,7 @@ describe('isJSONSchema()', function () {
       additionalProperties: true
     });
 
-    const actual = Schema.isJSONSchema(schema);
+    const actual = Schema.isJSONSchemaLike(schema);
     expect(actual).to.eql(true);
   });
 
@@ -18,7 +18,7 @@ describe('isJSONSchema()', function () {
     const schemaTwo = Schema.object({ bar: Schema.string() });
     const schema = Schema.allOf([schemaOne, schemaTwo]);
 
-    const actual = Schema.isJSONSchema(schema);
+    const actual = Schema.isJSONSchemaLike(schema);
     expect(actual).to.eql(true);
   });
 
@@ -27,7 +27,7 @@ describe('isJSONSchema()', function () {
     const schemaTwo = Schema.object({ bar: Schema.string() });
     const schema = Schema.anyOf([schemaOne, schemaTwo]);
 
-    const actual = Schema.isJSONSchema(schema);
+    const actual = Schema.isJSONSchemaLike(schema);
     expect(actual).to.eql(true);
   });
 
@@ -36,7 +36,7 @@ describe('isJSONSchema()', function () {
     const schemaTwo = Schema.object({ bar: Schema.string() });
     const schema = Schema.oneOf([schemaOne, schemaTwo]);
 
-    const actual = Schema.isJSONSchema(schema);
+    const actual = Schema.isJSONSchemaLike(schema);
     expect(actual).to.eql(true);
   });
 });
