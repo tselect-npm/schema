@@ -9,6 +9,14 @@ export function nullable<T extends TJSONSchema = TJSONSchema>(schema: T, value =
       .filter(type => type !== JSONSchemaType.NULL);
     const types = value ? baseTypes.concat(JSONSchemaType.NULL) : baseTypes;
     return cloneWith<T>(schema, { type: types.length > 1 ? types : types[0] } as any);
+  } else if (schema.anyOf) {
+    const baseSchemas = schema.anyOf.filter(subSchema => subSchema.type !== JSONSchemaType.NULL);
+    const Schemas = baseSchemas.concat({ type: JSONSchemaType.NULL });
+    return cloneWith<T>(schema, { anyOf: Schemas } as any);
+  } else if (schema.oneOf) {
+    const baseSchemas = schema.oneOf.filter(subSchema => subSchema.type !== JSONSchemaType.NULL);
+    const Schemas = baseSchemas.concat({ type: JSONSchemaType.NULL });
+    return cloneWith<T>(schema, { oneOf: Schemas } as any);
   }
 
   throw new Error(`Cannot make a non typed schema nullable.`);
