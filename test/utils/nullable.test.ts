@@ -39,4 +39,15 @@ describe('nullable()', function () {
       }]
     });
   });
+
+  it('should handle an enum JSONSchema', () => {
+    const schema = Schema.enumeration(['foo', 'bar']);
+
+    const actual = Schema.nullable(schema);
+
+    expect(actual).to.deep.equal({
+      enum: ['foo', 'bar', null],
+      type: ['string', 'null']
+    });
+  });
 });

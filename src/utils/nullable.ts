@@ -8,7 +8,13 @@ export function nullable<T extends TJSONSchema = TJSONSchema>(schema: T, value =
     const baseTypes = <JSONSchemaType[]>Utils.makeArray<JSONSchemaType>(schema.type)
       .filter(type => type !== JSONSchemaType.NULL);
     const types = value ? baseTypes.concat(JSONSchemaType.NULL) : baseTypes;
-    return cloneWith<T>(schema, { type: types.length > 1 ? types : types[0] } as any);
+    if (schema.enum) {
+      const enumValues = schema.enum.filter(type => type !== null);
+      const newEnumValues = enumValues.concat(null);
+      return cloneWith<T>(schema, { enum: newEnumValues, type: types.length > 1 ? types : types[0] } as any);
+    } else {
+      return cloneWith<T>(schema, { type: types.length > 1 ? types : types[0] } as any);
+    }
   } else if (schema.anyOf) {
     const baseSchemas = schema.anyOf.filter(subSchema => subSchema.type !== JSONSchemaType.NULL);
     const Schemas = baseSchemas.concat({ type: JSONSchemaType.NULL });
