@@ -4,7 +4,7 @@ import { TJSONSchema } from '../types/json-schema';
 import { TOptions } from '../types/options';
 import { JSONSchemaType } from '../constants/json-schema-type';
 
-export function object(properties: { [property: string]: TJSONSchema }, options: TOptions<TObjectJSONSchema> = {}): TObjectJSONSchema {
+export function object<T extends {} = any>(properties: { [key in keyof T]: TJSONSchema }, options: TOptions<TObjectJSONSchema> = {}): TObjectJSONSchema<T> {
   if (options.properties) {
     properties = options.properties;
   }

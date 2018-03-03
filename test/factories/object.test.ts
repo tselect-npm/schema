@@ -17,7 +17,7 @@ describe('object()', function () {
     });
   });
   it('should create a nullable object schema', () => {
-    const schema = Schema.object({ foo: Schema.string() }, {
+    const schema = Schema.object<{ foo: string }>({ foo: Schema.string() }, {
       nullable: true
     });
     expect(() => ajv.compile(schema)).to.not.throw();
