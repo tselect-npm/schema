@@ -1,6 +1,6 @@
 {
   "name": "@bluejay/schema",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "Typed, programmatic JSON schemas.",
   "main": "index.js",
   "scripts": {
