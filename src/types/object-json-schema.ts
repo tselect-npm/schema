@@ -3,7 +3,7 @@ import { TJSONSchema } from './json-schema';
 export type TObjectJSONSchema<T extends {} = any> = TJSONSchema & {
   maxProperties?: number;
   minProperties?: number;
-  required?: string[];
+  required?: (keyof T)[];
   additionalProperties?: boolean | TJSONSchema;
   definitions?: { [key: string]: TJSONSchema };
   properties?: { [key in keyof T]: TJSONSchema };
