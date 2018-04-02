@@ -1,6 +1,6 @@
 import { TJSONSchema } from '../types/json-schema';
 import { JSONSchemaType } from '../constants/json-schema-type';
-import { Utils } from '@bluejay/utils';
+import * as Utils from '@bluejay/utils';
 import { cloneWith } from './clone-with';
 
 export function nullable<T extends TJSONSchema = TJSONSchema>(schema: T, value = true): T {

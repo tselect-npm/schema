@@ -1,3 +1,4 @@
+import { enumValues } from '@bluejay/utils';
 import { JSONSchemaType } from '../constants/json-schema-type';
 import { any } from './any';
 import { TOptions } from '../types/options';
@@ -6,7 +7,8 @@ import { TNumberJSONSchema } from '../types/number-json-schema';
 import { TStringJSONSchema } from '../types/string-json-schema';
 
 export function enumeration<E>(enumOrValues: E | (string | number | null)[], options: TOptions<TJSONSchema | TNumberJSONSchema | TStringJSONSchema> = {}): any {
-  const values = Object.values(enumOrValues);
+  const values = Array.isArray(enumOrValues) ? enumOrValues : enumValues(enumOrValues);
+
   if (options.nullable) {
     values.push(null);
   }

@@ -28,7 +28,7 @@
     "typedoc": "^0.8.0"
   },
   "dependencies": {
-    "@bluejay/utils": "^2.0.0",
+    "@bluejay/utils": "3.5.0",
     "@types/ajv": "^1.0.0",
     "@types/lodash": "^4.14.77",
     "ajv": "^5.2.3",
