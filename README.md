@@ -1,5 +1,9 @@
 # Schema
 
+[![npm](https://img.shields.io/npm/v/@bluejay/schema.svg?style=flat-square)](https://www.npmjs.com/package/@bluejay/schema)
+ [![npm](https://img.shields.io/npm/dm/@bluejay/schema.svg?style=flat-square)](https://www.npmjs.com/package/@bluejay/schema)
+[![npm](https://img.shields.io/npm/l/@bluejay/schema.svg?style=flat-square)](https://www.npmjs.com/package/@bluejay/schema)
+
 Typed, composable JSON schemas. This module consumes and produces JSON schemas with little to no processing.
 
 ## Requirements
