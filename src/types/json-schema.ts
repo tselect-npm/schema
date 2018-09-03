@@ -1,6 +1,7 @@
 import { JSONSchemaType } from '../constants/json-schema-type';
 
 export type TJSONSchema = {
+  [key: string]: any;
   $ref?: string;
   id?: string;
   $schema?: string;
