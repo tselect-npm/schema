@@ -25,14 +25,14 @@
     "chai": "^4.1.2",
     "mocha": "^4.0.1",
     "ts-node": "^3.3.0",
-    "typedoc": "^0.8.0"
+    "typedoc": "0.14.2"
   },
   "dependencies": {
-    "@bluejay/utils": "3.5.0",
+    "@bluejay/utils": "3.5.3",
     "@types/ajv": "^1.0.0",
     "@types/lodash": "^4.14.77",
     "ajv": "^5.2.3",
-    "lodash": "^4.17.4",
+    "lodash": "4.17.11",
     "typescript": "^2.5.3"
   }
 }
