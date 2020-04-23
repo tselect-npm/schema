@@ -1,4 +1,5 @@
 export enum JSONStringFormat {
+  DATE = 'date',
   DATE_TIME = 'date-time',
   EMAIL = 'email',
   HOSTNAME = 'hostname',

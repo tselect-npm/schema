@@ -3,6 +3,7 @@ export { JSONStringFormat } from './src/constants/json-string-format';
 export { any } from './src/factories/any';
 export { array } from './src/factories/array';
 export { boolean } from './src/factories/boolean';
+export { date } from './src/factories/date';
 export { dateTime } from './src/factories/date-time';
 export { email } from './src/factories/email';
 export { enumeration } from './src/factories/enumeration';
