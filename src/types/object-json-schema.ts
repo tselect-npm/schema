@@ -1,6 +1,6 @@
 import { TJSONSchema } from './json-schema';
 
-export type TObjectJSONSchema<T extends {} = any> = TJSONSchema & {
+export type TObjectJSONSchema<T extends { [key: string]: unknown } = any> = TJSONSchema & {
   maxProperties?: number;
   minProperties?: number;
   required?: (keyof T)[];

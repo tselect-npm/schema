@@ -1,6 +1,6 @@
 import { TJSONSchema } from '../types/json-schema';
 import { clone } from './clone';
 
-export function cloneWith<T extends TJSONSchema = TJSONSchema, K extends TJSONSchema = TJSONSchema> (schema: T, overrides: K): T & K {
+export function cloneWith<T extends TJSONSchema = TJSONSchema, O extends Partial<T> = T>(schema: T, overrides: O): T & O {
   return Object.assign(clone(schema), overrides);
 }
