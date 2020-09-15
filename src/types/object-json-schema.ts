@@ -9,4 +9,4 @@ export type TObjectJSONSchema<T extends { [key: string]: unknown } = any> = TJSO
   properties?: { [key in keyof T]: TJSONSchema };
   patternProperties?: { [pattern: string]: TJSONSchema };
   dependencies?: { [key: string]: TJSONSchema | string[] };
-}
+};

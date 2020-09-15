@@ -1,4 +1,5 @@
-import * as Schema from '../../';
+import { expect } from 'chai';
+import * as Schema from '../../src/';
 
 describe('boolean()', function () {
   it('should create a boolean schema with no options', () => {

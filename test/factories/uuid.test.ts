@@ -1,4 +1,5 @@
-import * as Schema from '../../';
+import { expect } from 'chai';
+import * as Schema from '../../src/';
 import * as AJV from 'ajv';
 import { ValidateFunction } from 'ajv';
 

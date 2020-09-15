@@ -1,3 +1,4 @@
+import { expect } from 'chai';
 import { toStringRegExp } from '../../src/utils/to-string-reg-exp';
 
 describe('toStringRegExp()', function () {

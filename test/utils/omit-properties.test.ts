@@ -1,4 +1,5 @@
-import * as Schema from '../../';
+import { expect } from 'chai';
+import * as Schema from '../../src/';
 
 describe('omitProperties()', function () {
   it('should return a cloned object schema with filtered properties', () => {

@@ -1,4 +1,5 @@
-import * as Schema from '../../';
+import { expect } from 'chai';
+import * as Schema from '../../src/';
 
 describe('dateTime()', function () {
   it('should create a date time schema with no options', () => {

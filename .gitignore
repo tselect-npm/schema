@@ -1,4 +1,10 @@
 **/*.js
-node_modules/
 .idea/
+.nyc_output/
+.vscode/
+coverage/
+dist/
 dts/
+lib/
+node_modules/
+npm-debug.log
