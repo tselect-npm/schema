@@ -8,5 +8,5 @@ export function object<T extends {} = any>(properties: { [key in keyof T]: TJSON
   if (options.properties) {
     properties = options.properties;
   }
-  return makeSchema<TObjectJSONSchema<T>>(Object.assign(options, { properties, additionalProperties: options.additionalProperties || false }), JSONSchemaType.OBJECT);
+  return makeSchema<TObjectJSONSchema<T>>(Object.assign(options, { properties, additionalProperties: options.additionalProperties || false }), JSONSchemaType.OBJECT) as TObjectJSONSchema<T>;
 }

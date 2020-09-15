@@ -1,4 +1,6 @@
 import { TJSONSchema } from './json-schema';
+import { TNumberJSONSchema } from './number-json-schema';
+import { TStringJSONSchema } from './string-json-schema';
 
 export type TObjectJSONSchema<T extends { [key: string]: unknown } = any> = TJSONSchema & {
   maxProperties?: number;
@@ -6,7 +8,13 @@ export type TObjectJSONSchema<T extends { [key: string]: unknown } = any> = TJSO
   required?: (keyof T)[];
   additionalProperties?: boolean | TJSONSchema;
   definitions?: { [key: string]: TJSONSchema };
-  properties?: { [key in keyof T]: TJSONSchema };
+  properties?: {
+    [key in keyof T]: T[key] extends number
+      ? TNumberJSONSchema
+      : T[key] extends string
+        ? TStringJSONSchema
+        : TJSONSchema;
+  };
   patternProperties?: { [pattern: string]: TJSONSchema };
   dependencies?: { [key: string]: TJSONSchema | string[] };
 };
