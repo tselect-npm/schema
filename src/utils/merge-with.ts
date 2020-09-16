@@ -11,5 +11,5 @@ export function mergeWith<T extends TJSONSchema = TJSONSchema, O extends (T exte
       return obj.concat(src);
     }
     return undefined;
-  }) as (O extends TObjectJSONSchema<infer U> ? T extends TObjectJSONSchema<infer V> ? TObjectJSONSchema<U & V> & Omit<T, 'required' | 'properties'> : TObjectJSONSchema<U> & Omit<T, 'required' | 'properties'> : T & O);
+  }) as TMergeWithReturn<O,  T>;
 }
