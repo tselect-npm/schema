@@ -1,7 +1,7 @@
 {
   "name": "@bluejay/schema",
   "description": "Typed, programmatic JSON schemas.",
-  "version": "2.0.0-alpha.3",
+  "version": "2.0.0-alpha.4",
   "license": "MIT",
   "author": "Sylvain Estevez",
   "main": "dist/index.js",
