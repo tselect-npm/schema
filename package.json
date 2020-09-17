@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/bluebirds-blue-jay/schema#readme",
   "dependencies": {
-    "@bluejay/utils": "4.0.0-alpha.10",
+    "@bluejay/utils": "4.0.0-alpha.12",
     "@types/ajv": "^1.0.0",
     "ajv": "6.5.3",
     "lodash": "4.17.20"
