@@ -1,8 +1,10 @@
 docs/
-node_modules/
 test/
+node_modules/
+.nyc_output/
+.travis.yml
 .idea/
-*.ts
-dts/
-!dts/**/*.d.ts
 tsconfig.json
+*.ts
+!dist/**/*.d.ts
+!dist/**/*.js

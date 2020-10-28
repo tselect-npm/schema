@@ -1,4 +1,5 @@
-import * as Schema from '../../';
+import { expect } from 'chai';
+import * as Schema from '../../src/';
 
 describe('email()', function () {
   it('should create an email schema with no options', () => {

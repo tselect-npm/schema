@@ -1,4 +1,5 @@
-import * as Schema from '../../index';
+import { expect } from 'chai';
+import * as Schema from '../../src/';
 import { JSONSchemaType } from '../../src/constants/json-schema-type';
 
 describe('allOf()', () => {

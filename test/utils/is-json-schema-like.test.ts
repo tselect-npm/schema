@@ -1,4 +1,5 @@
-import * as Schema from '../../';
+import { expect } from 'chai';
+import * as Schema from '../../src/';
 
 describe('isJSONSchemaLike()', function () {
   it('should return true for a simple object JSONSchema', () => {

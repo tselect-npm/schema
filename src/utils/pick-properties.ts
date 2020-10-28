@@ -1,6 +1,6 @@
+import * as Lodash from 'lodash';
 import { TObjectJSONSchema } from '../types/object-json-schema';
 import { clone } from './clone';
-import * as Lodash from 'lodash';
 
 export function pickProperties(schema: TObjectJSONSchema, properties: string[]): TObjectJSONSchema {
   const cloned = clone(schema);
@@ -8,7 +8,7 @@ export function pickProperties(schema: TObjectJSONSchema, properties: string[]):
     Object.assign(cloned, { properties: Lodash.pick(cloned.properties, properties) });
   }
   if (cloned.required) {
-    Object.assign(cloned, { required: Lodash.intersection(cloned.required, properties) })
+    Object.assign(cloned, { required: Lodash.intersection(cloned.required, properties) });
   }
   return cloned;
 }

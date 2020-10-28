@@ -1,4 +1,5 @@
-import * as Schema from '../../';
+import { expect } from 'chai';
+import * as Schema from '../../src/';
 
 describe('enumeration()', function () {
   it('should create an enumeration schema from a string enum', () => {

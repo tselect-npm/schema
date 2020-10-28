@@ -1,4 +1,5 @@
-import * as Schema from '../../';
+import { expect } from 'chai';
+import * as Schema from '../../src/';
 
 describe('list()', function () {
   it('should create a list schema with no options', () => {

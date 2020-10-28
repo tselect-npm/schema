@@ -8,8 +8,11 @@ Typed, composable JSON schemas. This module consumes and produces JSON schemas w
 
 ## Requirements
 
-- `node >= 7.10`
-- `typescript >= 2.4`
+- `node >= 8.6`, tested with:
+  - `node@8.6.0`
+  - `node@12.8.1`
+- `typescript >= 4.0`, tested with:
+  - `typescript@4.0.2`
 
 ## Installation
 

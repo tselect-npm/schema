@@ -62,47 +62,71 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="schema">Schema</h1>
+				<a href="#schema" id="schema" style="color: inherit; text-decoration: none;">
+					<h1>Schema</h1>
+				</a>
+				<p><a href="https://www.npmjs.com/package/@bluejay/schema"><img src="https://img.shields.io/npm/v/@bluejay/schema.svg?style=flat-square" alt="npm"></a>
+					<a href="https://www.npmjs.com/package/@bluejay/schema"><img src="https://img.shields.io/npm/dm/@bluejay/schema.svg?style=flat-square" alt="npm"></a>
+				<a href="https://www.npmjs.com/package/@bluejay/schema"><img src="https://img.shields.io/npm/l/@bluejay/schema.svg?style=flat-square" alt="npm"></a></p>
 				<p>Typed, composable JSON schemas. This module consumes and produces JSON schemas with little to no processing.</p>
-				<h2 id="requirements">Requirements</h2>
+				<a href="#requirements" id="requirements" style="color: inherit; text-decoration: none;">
+					<h2>Requirements</h2>
+				</a>
 				<ul>
-					<li><code>node &gt;= 7.10</code></li>
-					<li><code>typescript &gt;= 2.4</code></li>
+					<li><code>node &gt;= 8.6</code>, tested with:<ul>
+							<li><code>node@8.6.0</code></li>
+							<li><code>node@12.8.1</code></li>
+						</ul>
+					</li>
+					<li><code>typescript &gt;= 4.0</code>, tested with:<ul>
+							<li><code>typescript@4.0.2</code></li>
+						</ul>
+					</li>
 				</ul>
-				<h2 id="installation">Installation</h2>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
 				<p><code>npm i @bluejay/schema [--save]</code></p>
-				<h2 id="disclaimer">Disclaimer</h2>
+				<a href="#disclaimer" id="disclaimer" style="color: inherit; text-decoration: none;">
+					<h2>Disclaimer</h2>
+				</a>
 				<p>This module takes the following positions:</p>
 				<ul>
 					<li><code>additionalProperties</code> for <code>object</code> schemas is <code>false</code> unless you specify a value</li>
 					<li><code>additionalItems</code> for <code>array</code> schemas is <code>false</code> unless you specify a value</li>
 				</ul>
-				<h2 id="motivation">Motivation</h2>
+				<a href="#motivation" id="motivation" style="color: inherit; text-decoration: none;">
+					<h2>Motivation</h2>
+				</a>
 				<p>Writing JSON schemas for large applications can be pretty time consuming. Having to type double quotes and &quot;additionalProperties&quot; for each new object by hand is no fun.</p>
 				<p>This module has been created with the intention of reducing the overhead of describing JSON by providing simple wrappers and utilities to manage common use cases with easiness.</p>
 				<p>It is also fully typed and will allow you to benefit from your favorite IDE&#39;s auto-completion, making typing a lot easier.</p>
-				<h2 id="usage">Usage</h2>
-				<h3 id="building-a-schema">Building a schema</h3>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { object, email } <span class="hljs-keyword">from</span> <span class="hljs-string">'@bluejay/schema'</span>;
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<a href="#building-a-schema" id="building-a-schema" style="color: inherit; text-decoration: none;">
+					<h3>Building a schema</h3>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { object, email } <span class="hljs-keyword">from</span> <span class="hljs-string">'@bluejay/schema'</span>;
 
 <span class="hljs-keyword">const</span> schema = object({
   foo: email()
-});
-</code></pre>
+});</code></pre>
 				<p>Produces:</p>
-				<pre><code class="lang-javascript">schema = {
+				<pre><code class="language-javascript">schema = {
   <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
   <span class="hljs-attr">additionalProperties</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// Default, see disclaimer</span>
-  properties: {
+  <span class="hljs-attr">properties</span>: {
     <span class="hljs-attr">foo</span>: {
       <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>,
       <span class="hljs-attr">format</span>: <span class="hljs-string">'email'</span>
     }
   }
-}
-</code></pre>
-				<h3 id="manipulating-a-schema">Manipulating a schema</h3>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { object, email, integer, omitProperties } <span class="hljs-keyword">from</span> <span class="hljs-string">'@bluejay/schema'</span>;
+}</code></pre>
+				<a href="#manipulating-a-schema" id="manipulating-a-schema" style="color: inherit; text-decoration: none;">
+					<h3>Manipulating a schema</h3>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { object, email, integer, omitProperties } <span class="hljs-keyword">from</span> <span class="hljs-string">'@bluejay/schema'</span>;
 
 <span class="hljs-keyword">const</span> schema = object({
   foo: email(),
@@ -111,34 +135,34 @@
   required: [<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>]
 });
 
-<span class="hljs-keyword">const</span> modified = omitProperties(schema, [<span class="hljs-string">'bar'</span>]);
-</code></pre>
+<span class="hljs-keyword">const</span> modified = omitProperties(schema, [<span class="hljs-string">'bar'</span>]);</code></pre>
 				<p>Produces:</p>
-				<pre><code class="lang-javascript">modified = {
+				<pre><code class="language-javascript">modified = {
  <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
  <span class="hljs-attr">required</span>: [<span class="hljs-string">'foo'</span>], <span class="hljs-comment">// Only foo is kept as required</span>
- additionalProperties: <span class="hljs-literal">false</span>, <span class="hljs-comment">// Default, see disclaimer</span>
- properties: {
+ <span class="hljs-attr">additionalProperties</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// Default, see disclaimer</span>
+ <span class="hljs-attr">properties</span>: {
    <span class="hljs-attr">foo</span>: { <span class="hljs-comment">// No bar property anymore</span>
-     type: <span class="hljs-string">'string'</span>,
+     <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>,
      <span class="hljs-attr">format</span>: <span class="hljs-string">'email'</span>
    }
  }
-}
-</code></pre>
-				<h3 id="nullable-types">Nullable types</h3>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { <span class="hljs-built_in">string</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'@bluejay/schema'</span>;
+}</code></pre>
+				<a href="#nullable-types" id="nullable-types" style="color: inherit; text-decoration: none;">
+					<h3>Nullable types</h3>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { <span class="hljs-built_in">string</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'@bluejay/schema'</span>;
 
-<span class="hljs-keyword">const</span> schema = <span class="hljs-built_in">string</span>({ nullable: <span class="hljs-literal">true</span> });
-</code></pre>
+<span class="hljs-keyword">const</span> schema = <span class="hljs-built_in">string</span>({ nullable: <span class="hljs-literal">true</span> });</code></pre>
 				<p>Produces:</p>
-				<pre><code class="lang-javascript">schema = {
+				<pre><code class="language-javascript">schema = {
   <span class="hljs-attr">type</span>: [<span class="hljs-string">'string'</span>, <span class="hljs-string">'null'</span>]
-}
-</code></pre>
-				<h3 id="json-schema-compatibility">JSON schema compatibility</h3>
+}</code></pre>
+				<a href="#json-schema-compatibility" id="json-schema-compatibility" style="color: inherit; text-decoration: none;">
+					<h3>JSON schema compatibility</h3>
+				</a>
 				<p>Any JSON schema you already wrote can be manipulated using this module.</p>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { object } <span class="hljs-keyword">from</span> <span class="hljs-string">'@bluejay/schema'</span>;
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { object } <span class="hljs-keyword">from</span> <span class="hljs-string">'@bluejay/schema'</span>;
 
 <span class="hljs-keyword">const</span> schema = object({}, {
   <span class="hljs-keyword">type</span>: <span class="hljs-string">'object'</span>,
@@ -150,10 +174,9 @@
       format: <span class="hljs-string">'email'</span>
     }
   }
-})
-</code></pre>
+}) </code></pre>
 				<p>Produces the exact same schema :</p>
-				<pre><code class="lang-javascript">schema = {
+				<pre><code class="language-javascript">schema = {
   <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
   <span class="hljs-attr">required</span>: [<span class="hljs-string">'foo'</span>],
   <span class="hljs-attr">additionalProperties</span>: <span class="hljs-literal">true</span>,
@@ -163,9 +186,10 @@
       <span class="hljs-attr">format</span>: <span class="hljs-string">'email'</span>
     }
   } 
-};
-</code></pre>
-				<h2 id="documentation">Documentation</h2>
+};</code></pre>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h2>Documentation</h2>
+				</a>
 				<p>See <a href="https://bluebirds-blue-jay.github.io/schema/">Github Pages</a>.</p>
 			</div>
 		</div>
@@ -179,117 +203,6 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum">
-						<a href="enums/jsonschematype.html" class="tsd-kind-icon">JSONSchema<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="enums/jsonstringformat.html" class="tsd-kind-icon">JSONString<wbr>Format</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#tarrayjsonschema" class="tsd-kind-icon">TArrayJSONSchema</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#tbooleanjsonschema" class="tsd-kind-icon">TBooleanJSONSchema</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#tcommonoptions" class="tsd-kind-icon">TCommon<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#tintegerjsonschema" class="tsd-kind-icon">TIntegerJSONSchema</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#tjsonschema" class="tsd-kind-icon">TJSONSchema</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#tnumberjsonschema" class="tsd-kind-icon">TNumberJSONSchema</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#tobjectjsonschema" class="tsd-kind-icon">TObjectJSONSchema</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#toptions" class="tsd-kind-icon">TOptions</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#tstringjsonschema" class="tsd-kind-icon">TStringJSONSchema</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="globals.html#uuid_pattern" class="tsd-kind-icon">UUID_<wbr>PATTERN</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="globals.html#ajv" class="tsd-kind-icon">ajv</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#allof" class="tsd-kind-icon">all<wbr>Of</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#any" class="tsd-kind-icon">any</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#anyof" class="tsd-kind-icon">any<wbr>Of</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#array" class="tsd-kind-icon">array</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#boolean" class="tsd-kind-icon">boolean</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#clone" class="tsd-kind-icon">clone</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#clonewith" class="tsd-kind-icon">clone<wbr>With</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#datetime" class="tsd-kind-icon">date<wbr>Time</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#email" class="tsd-kind-icon">email</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#enumeration" class="tsd-kind-icon">enumeration</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#integer" class="tsd-kind-icon">integer</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#isjsonschemalike" class="tsd-kind-icon">isJSONSchema<wbr>Like</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#list" class="tsd-kind-icon">list</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#mergewith" class="tsd-kind-icon">merge<wbr>With</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#number" class="tsd-kind-icon">number</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#object" class="tsd-kind-icon">object</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#omitproperties" class="tsd-kind-icon">omit<wbr>Properties</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#oneof" class="tsd-kind-icon">one<wbr>Of</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#pickproperties" class="tsd-kind-icon">pick<wbr>Properties</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#requireproperties" class="tsd-kind-icon">require<wbr>Properties</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#string" class="tsd-kind-icon">string</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#tostringregexp" class="tsd-kind-icon">to<wbr>String<wbr>Reg<wbr>Exp</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#tuple" class="tsd-kind-icon">tuple</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#uuid" class="tsd-kind-icon">uuid</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -307,6 +220,7 @@
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -355,7 +269,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
