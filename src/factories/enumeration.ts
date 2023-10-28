@@ -7,7 +7,7 @@ import { TStringJSONSchema } from '../types/string-json-schema';
 import { any } from './any';
 
 export function enumeration<E>(enumOrValues: E | (string | number | null)[], options: TOptions<TJSONSchema | TNumberJSONSchema | TStringJSONSchema> = {}): any {
-  const values = Array.isArray(enumOrValues) ? enumOrValues : enumValues(enumOrValues);
+  const values = Array.isArray(enumOrValues) ? enumOrValues : enumValues(enumOrValues as {});
 
   if (options.nullable) {
     values.push(null);

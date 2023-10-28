@@ -1,22 +1,14 @@
 # Schema
 
-[![npm](https://img.shields.io/npm/v/@bluejay/schema.svg?style=flat-square)](https://www.npmjs.com/package/@bluejay/schema)
- [![npm](https://img.shields.io/npm/dm/@bluejay/schema.svg?style=flat-square)](https://www.npmjs.com/package/@bluejay/schema)
-[![npm](https://img.shields.io/npm/l/@bluejay/schema.svg?style=flat-square)](https://www.npmjs.com/package/@bluejay/schema)
+[![npm](https://img.shields.io/npm/v/@tselect/schema.svg?style=flat-square)](https://www.npmjs.com/package/@tselect/schema)
+ [![npm](https://img.shields.io/npm/dm/@tselect/schema.svg?style=flat-square)](https://www.npmjs.com/package/@tselect/schema)
+[![npm](https://img.shields.io/npm/l/@tselect/schema.svg?style=flat-square)](https://www.npmjs.com/package/@tselect/schema)
 
 Typed, composable JSON schemas. This module consumes and produces JSON schemas with little to no processing.
 
-## Requirements
-
-- `node >= 8.6`, tested with:
-  - `node@8.6.0`
-  - `node@12.8.1`
-- `typescript >= 4.0`, tested with:
-  - `typescript@4.0.2`
-
 ## Installation
 
-`npm i @bluejay/schema [--save]`
+`npm i @tselect/schema [--save]`
 
 ## Disclaimer
 
@@ -37,7 +29,7 @@ It is also fully typed and will allow you to benefit from your favorite IDE's au
 ### Building a schema
 
 ```typescript
-import { object, email } from '@bluejay/schema';
+import { object, email } from '@tselect/schema';
 
 const schema = object({
   foo: email()
@@ -63,7 +55,7 @@ schema = {
 ### Manipulating a schema
 
 ```typescript
-import { object, email, integer, omitProperties } from '@bluejay/schema';
+import { object, email, integer, omitProperties } from '@tselect/schema';
 
 const schema = object({
   foo: email(),
@@ -94,7 +86,7 @@ modified = {
 ### Nullable types
 
 ```typescript
-import { string } from '@bluejay/schema';
+import { string } from '@tselect/schema';
 
 const schema = string({ nullable: true });
 ```
@@ -111,7 +103,7 @@ schema = {
 Any JSON schema you already wrote can be manipulated using this module.
 
 ```typescript
-import { object } from '@bluejay/schema';
+import { object } from '@tselect/schema';
 
 const schema = object({}, {
   type: 'object',
@@ -141,8 +133,3 @@ schema = {
   } 
 };
 ```
-
-
-## Documentation
-
-See [Github Pages](https://bluebirds-blue-jay.github.io/schema/).
