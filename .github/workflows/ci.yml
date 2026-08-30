@@ -1,0 +1,26 @@
+# Thin caller for the org-wide reusable workflow in `tselect-npm/.github`.
+# Every input has a default suited to this toolchain (pnpm + tsdown + Vitest +
+# Biome + tsc), so there is nothing to configure here.
+#
+# The `@v1` pin is deliberate and must never become `@main`: an edit upstream
+# would otherwise change all seven repos' CI on their next run with no review in
+# any of them. `v1` moves for fixes and backwards-compatible additions; anything
+# that could turn a passing build red gets `v2` and repos migrate one at a time.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Set here rather than in the reusable workflow: inside a reusable workflow
+# `github.workflow` and `github.ref` resolve to the caller's, so every repo
+# calling it would share one concurrency group and cancel each other.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  ci:
+    uses: tselect-npm/.github/.github/workflows/ci.yml@v1

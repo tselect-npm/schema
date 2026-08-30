@@ -53,6 +53,9 @@
   },
   "author": "Sylvain Estevez",
   "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
   "packageManager": "pnpm@11.21.0",
   "bugs": {
     "url": "https://github.com/tselect-npm/schema/issues"
