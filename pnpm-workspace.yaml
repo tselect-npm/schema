@@ -1,0 +1,8 @@
+allowBuilds:
+  esbuild: true
+
+# esbuild <0.28.1 carries GHSA-g7r4-m6w7-qqqr (dev-server file read on Windows).
+# tsup and vitest still resolve to the vulnerable range, so pin it forward here
+# until they widen their own ranges. Dev-only dependency; nothing ships to consumers.
+overrides:
+  esbuild: ">=0.28.1"
