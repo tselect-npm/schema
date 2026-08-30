@@ -13,9 +13,12 @@
     "fix": "tslint --fix --project ./",
     "compile": "tsc",
     "build": "rm -rf dist && mkdir dist && tsc --noEmit false",
-    "prepare": "tsc",
+    "prepack": "npm run build",
     "prepublishOnly": "npm run lint && npm run cov && npm run build"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tselect-npm/schema.git"
