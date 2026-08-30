@@ -1,15 +1,15 @@
-import { expect } from 'chai';
-import * as Schema from '../../src/';
+import { describe, expect, it } from 'vitest';
+import * as Schema from '../../src/index';
 
-describe('number()', function () {
+describe('number()', () => {
   it('should create a number schema without options', () => {
     const schema = Schema.number();
-    expect(schema).to.deep.equal({ type: 'number' });
+    expect(schema).toEqual({ type: 'number' });
   });
 
   it('should create a nullable number schema', () => {
     const schema = Schema.number({ nullable: true });
-    expect(schema).to.deep.equal({ type: ['number', 'null'] });
+    expect(schema).toEqual({ type: ['number', 'null'] });
   });
 
   it('should create a number schema will all options', () => {
@@ -18,15 +18,15 @@ describe('number()', function () {
       minimum: 0,
       maximum: 2,
       exclusiveMinimum: true,
-      exclusiveMaximum: true
+      exclusiveMaximum: true,
     });
-    expect(schema).to.deep.equal({
+    expect(schema).toEqual({
       type: 'number',
       multipleOf: 1,
       minimum: 0,
       maximum: 2,
       exclusiveMinimum: true,
-      exclusiveMaximum: true
+      exclusiveMaximum: true,
     });
   });
 });

@@ -1,16 +1,16 @@
-import { expect } from 'chai';
-import * as Schema from '../../src/';
-import * as AJV from 'ajv';
-import { ValidateFunction } from 'ajv';
+import Ajv, { type ValidateFunction } from 'ajv';
+import { describe, expect, it } from 'vitest';
+import * as Schema from '../../src/index';
 
-const ajv = new AJV();
+// ajv 8 enables strict mode by default; `nullable` schemas are union-typed.
+const ajv = new Ajv({ allowUnionTypes: true });
 
-describe('uuid()', function () {
+describe('uuid()', () => {
   it('should create an uuid schema with no options', () => {
     const schema = Schema.uuid();
-    expect(schema).to.deep.equal({
+    expect(schema).toEqual({
       type: 'string',
-      pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+      pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',
     });
   });
   it('should accept a valid uuid', () => {
@@ -20,7 +20,7 @@ describe('uuid()', function () {
     const data = '00000000-0000-0000-0000-000000000000';
     const valid = validateFunction(data);
 
-    expect(valid).to.equal(true);
+    expect(valid).toBe(true);
   });
   it('should reject an invalid uuid', () => {
     const schema = Schema.uuid();
@@ -29,6 +29,6 @@ describe('uuid()', function () {
     const data = 'not-a-uuid-lol';
     const valid = validateFunction(data);
 
-    expect(valid).to.equal(false);
+    expect(valid).toBe(false);
   });
 });

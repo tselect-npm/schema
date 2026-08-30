@@ -1,13 +1,16 @@
 import { enumValues } from '@bluejay/utils';
 import { JSONSchemaType } from '../constants/json-schema-type';
-import { TJSONSchema } from '../types/json-schema';
-import { TNumberJSONSchema } from '../types/number-json-schema';
-import { TOptions } from '../types/options';
-import { TStringJSONSchema } from '../types/string-json-schema';
+import type { TJSONSchema } from '../types/json-schema';
+import type { TNumberJSONSchema } from '../types/number-json-schema';
+import type { TOptions } from '../types/options';
+import type { TStringJSONSchema } from '../types/string-json-schema';
 import { any } from './any';
 
-export function enumeration<E>(enumOrValues: E | (string | number | null)[], options: TOptions<TJSONSchema | TNumberJSONSchema | TStringJSONSchema> = {}): any {
-  const values = Array.isArray(enumOrValues) ? enumOrValues : enumValues(enumOrValues as {});
+export function enumeration<E>(
+  enumOrValues: E | (string | number | null)[],
+  options: TOptions<TJSONSchema | TNumberJSONSchema | TStringJSONSchema> = {},
+): TJSONSchema {
+  const values = Array.isArray(enumOrValues) ? enumOrValues : enumValues(enumOrValues as object);
 
   if (options.nullable) {
     values.push(null);

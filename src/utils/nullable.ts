@@ -1,28 +1,32 @@
-import * as Utils from '@bluejay/utils';
+import { makeArray } from '@bluejay/utils';
 import { JSONSchemaType } from '../constants/json-schema-type';
-import { TJSONSchema } from '../types/json-schema';
-import { cloneWith } from './clone-with';
+import type { TJSONSchema } from '../types/json-schema';
+import { cloneWith, type TCloneWithOverrides } from './clone-with';
 
 export function nullable<T extends TJSONSchema = TJSONSchema>(schema: T, value = true): T {
   if (schema.type) {
-    const baseTypes = <JSONSchemaType[]>Utils.makeArray<JSONSchemaType>(schema.type)
-      .filter(type => type !== JSONSchemaType.NULL);
+    const baseTypes = <JSONSchemaType[]>(
+      makeArray<JSONSchemaType>(schema.type).filter((type) => type !== JSONSchemaType.NULL)
+    );
     const types = value ? baseTypes.concat(JSONSchemaType.NULL) : baseTypes;
     if (schema.enum) {
-      const enumValues = schema.enum.filter(type => type !== null);
+      const enumValues = schema.enum.filter((type) => type !== null);
       const newEnumValues = enumValues.concat(null);
-      return cloneWith<T>(schema, { enum: newEnumValues, type: types.length > 1 ? types : types[0] } as any) as T;
+      return cloneWith<T>(schema, {
+        enum: newEnumValues,
+        type: types.length > 1 ? types : types[0],
+      } as TCloneWithOverrides<T>) as T;
     } else {
-      return cloneWith<T>(schema, { type: types.length > 1 ? types : types[0] } as any) as T;
+      return cloneWith<T>(schema, { type: types.length > 1 ? types : types[0] } as TCloneWithOverrides<T>) as T;
     }
   } else if (schema.anyOf) {
-    const baseSchemas = schema.anyOf.filter(subSchema => subSchema.type !== JSONSchemaType.NULL);
+    const baseSchemas = schema.anyOf.filter((subSchema) => subSchema.type !== JSONSchemaType.NULL);
     const Schemas = baseSchemas.concat({ type: JSONSchemaType.NULL });
-    return cloneWith<T>(schema, { anyOf: Schemas } as any) as T;
+    return cloneWith<T>(schema, { anyOf: Schemas } as TCloneWithOverrides<T>) as T;
   } else if (schema.oneOf) {
-    const baseSchemas = schema.oneOf.filter(subSchema => subSchema.type !== JSONSchemaType.NULL);
+    const baseSchemas = schema.oneOf.filter((subSchema) => subSchema.type !== JSONSchemaType.NULL);
     const Schemas = baseSchemas.concat({ type: JSONSchemaType.NULL });
-    return cloneWith<T>(schema, { oneOf: Schemas } as any) as T;
+    return cloneWith<T>(schema, { oneOf: Schemas } as TCloneWithOverrides<T>) as T;
   }
 
   throw new Error(`Cannot make a non typed schema nullable.`);

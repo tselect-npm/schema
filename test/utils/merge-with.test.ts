@@ -1,33 +1,39 @@
-import { expect } from 'chai';
-import * as Schema from '../../src/';
+import { describe, expect, it } from 'vitest';
+import * as Schema from '../../src/index';
 
-describe('mergeWith()', function () {
+describe('mergeWith()', () => {
   it('should return a merged object schema', () => {
-    const fooSchema = Schema.object({
-      foo: Schema.string()
-    }, {
-      required: ['foo'],
-      additionalProperties: true
-    });
+    const fooSchema = Schema.object(
+      {
+        foo: Schema.string(),
+      },
+      {
+        required: ['foo'],
+        additionalProperties: true,
+      },
+    );
 
-    const barSchema = Schema.object({
-      bar: Schema.string()
-    }, {
-      required: ['bar'],
-      additionalProperties: true,
-      nullable: true
-    });
+    const barSchema = Schema.object(
+      {
+        bar: Schema.string(),
+      },
+      {
+        required: ['bar'],
+        additionalProperties: true,
+        nullable: true,
+      },
+    );
 
     const merged = Schema.mergeWith(fooSchema, barSchema);
 
-    expect(merged).to.deep.equal({
+    expect(merged).toEqual({
       type: ['object', 'null'],
       required: ['foo', 'bar'],
       additionalProperties: true,
       properties: {
         foo: { type: 'string' },
-        bar: { type: 'string' }
-      }
+        bar: { type: 'string' },
+      },
     });
   });
 });

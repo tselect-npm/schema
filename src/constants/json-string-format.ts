@@ -5,5 +5,5 @@ export enum JSONStringFormat {
   HOSTNAME = 'hostname',
   IPV4 = 'ipv4',
   IPV6 = 'ipv6',
-  URI = 'uri'
+  URI = 'uri',
 }

@@ -1,8 +1,8 @@
-import { JSONSchemaType } from '../constants/json-schema-type';
-import { TJSONSchema } from './json-schema';
+import type { JSONSchemaType } from '../constants/json-schema-type';
+import type { TJSONSchema } from './json-schema';
 
 export type TArrayJSONSchema = TJSONSchema & {
-  type: JSONSchemaType.ARRAY | [JSONSchemaType.NULL, JSONSchemaType.ARRAY],
+  type: JSONSchemaType.ARRAY | [JSONSchemaType.NULL, JSONSchemaType.ARRAY];
   additionalItems?: boolean | TJSONSchema;
   items?: TJSONSchema | TJSONSchema[];
   maxItems?: number;

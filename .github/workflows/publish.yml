@@ -1,0 +1,64 @@
+# Thin caller for the org-wide reusable release workflow in `tselect-npm/.github`.
+# Publishing happens here and nowhere else — there is no npm token on anyone's
+# laptop once trusted publishing is configured for this package.
+#
+# **This file must stay named `publish.yml`.** npm's trusted publisher config for
+# `@tselect/schema` names one workflow file, and for a reusable workflow npm
+# validates the *caller's* filename rather than the reusable one. Renaming this
+# file breaks publishing with a 404 that mentions nothing about filenames.
+#
+# The `@v1` pin is deliberate and must never become `@main`, for the same reason
+# as ci.yml: an edit upstream would otherwise change every repo's release
+# behaviour with no review in any of them.
+
+name: Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: 'Version bump. `auto` reads it from the gitmoji since the last release.'
+        type: choice
+        options: [auto, patch, minor, major]
+        default: auto
+      dry-run:
+        description: 'Plan, rehearse the publish, then stop before anything is pushed or published.'
+        type: boolean
+        default: false
+      dist-tag:
+        description: 'npm dist-tag.'
+        type: string
+        default: latest
+      since-ref:
+        description: >-
+          Count commits from this ref instead of the tag matching the published
+          version. Needed for the first @tselect release: the tag named after the
+          published 1.0.0 is @bluejay's, so the range otherwise reaches back into
+          a lineage that has nothing to do with this package.
+        type: string
+        default: ''
+
+# A release must never be cancelled by a later one: the tag is pushed before
+# `pnpm publish` runs, so an interruption in that window leaves a tagged version
+# the registry does not have. Re-running recovers it, but not being interrupted
+# is better. Note this differs from ci.yml, where cancelling is the point.
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    permissions:
+      # Push the release commit and the tag to `main`.
+      contents: write
+      # Mint the OIDC token npm exchanges for publish rights. Required *here* as
+      # well as in the reusable workflow: a called workflow can only narrow the
+      # permissions it is given, so omitting this produces a job with no token
+      # and a 404 from the registry.
+      id-token: write
+    uses: tselect-npm/.github/.github/workflows/publish.yml@v1
+    with:
+      bump: ${{ inputs.bump }}
+      dry-run: ${{ inputs.dry-run }}
+      dist-tag: ${{ inputs.dist-tag }}
+      since-ref: ${{ inputs.since-ref }}

@@ -1,21 +1,21 @@
-import { expect } from 'chai';
-import * as Schema from '../../src/';
+import { describe, expect, it } from 'vitest';
+import * as Schema from '../../src/index';
 
-describe('tuple()', function () {
+describe('tuple()', () => {
   it('should create a tuple schema with no options', () => {
     const schema = Schema.tuple([Schema.string(), Schema.integer()]);
-    expect(schema).to.deep.equal({
+    expect(schema).toEqual({
       type: 'array',
       items: [{ type: 'string' }, { type: 'integer' }],
-      additionalItems: false
+      additionalItems: false,
     });
   });
   it('should create a nullable tuple schema', () => {
     const schema = Schema.tuple([Schema.string(), Schema.integer()], { nullable: true });
-    expect(schema).to.deep.equal({
+    expect(schema).toEqual({
       type: ['array', 'null'],
       items: [{ type: 'string' }, { type: 'integer' }],
-      additionalItems: false
+      additionalItems: false,
     });
   });
 });
