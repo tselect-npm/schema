@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import * as Schema from '../../src/';
+import { describe, expect, it } from 'vitest';
+import * as Schema from '../../src/index';
 
 describe('pickProperties()', function () {
   it('should return a cloned object schema with filtered properties', () => {
@@ -15,7 +15,7 @@ describe('pickProperties()', function () {
 
     const modified = Schema.pickProperties(schema, ['bar']);
 
-    expect(modified).to.deep.equal({
+    expect(modified).toEqual({
       type: 'object',
       required: [],
       additionalProperties: true,
@@ -38,7 +38,7 @@ describe('pickProperties()', function () {
 
     const modified = Schema.pickProperties(schema, ['bar']);
 
-    expect(modified).to.deep.equal({
+    expect(modified).toEqual({
       type: 'object',
       required: [],
       additionalProperties: true,
@@ -61,13 +61,23 @@ describe('pickProperties()', function () {
 
     const modified = Schema.pickProperties(schema, ['bar']);
 
-    expect(modified).to.deep.equal({
+    expect(modified).toEqual({
       type: 'object',
       required: [],
       additionalProperties: true,
       properties: {
         bar: { type: 'string' }
       }
+    });
+  });
+
+  it('should leave a schema without properties or required untouched', () => {
+    const schema = Schema.object({}, { additionalProperties: true });
+    delete schema.properties;
+
+    expect(Schema.pickProperties(schema, ['foo'])).toEqual({
+      type: 'object',
+      additionalProperties: true,
     });
   });
 });

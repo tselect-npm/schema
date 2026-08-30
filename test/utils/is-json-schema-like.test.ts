@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import * as Schema from '../../src/';
+import { describe, expect, it } from 'vitest';
+import * as Schema from '../../src/index';
 
 describe('isJSONSchemaLike()', function () {
   it('should return true for a simple object JSONSchema', () => {
@@ -11,7 +11,7 @@ describe('isJSONSchemaLike()', function () {
     });
 
     const actual = Schema.isJSONSchemaLike(schema);
-    expect(actual).to.eql(true);
+    expect(actual).toEqual(true);
   });
 
   it('should return true for an allOf JSONSchema', () => {
@@ -20,7 +20,7 @@ describe('isJSONSchemaLike()', function () {
     const schema = Schema.allOf([schemaOne, schemaTwo]);
 
     const actual = Schema.isJSONSchemaLike(schema);
-    expect(actual).to.eql(true);
+    expect(actual).toEqual(true);
   });
 
   it('should return true for an anyOf JSONSchema', () => {
@@ -29,7 +29,7 @@ describe('isJSONSchemaLike()', function () {
     const schema = Schema.anyOf([schemaOne, schemaTwo]);
 
     const actual = Schema.isJSONSchemaLike(schema);
-    expect(actual).to.eql(true);
+    expect(actual).toEqual(true);
   });
 
   it('should return true for an oneOf JSONSchema', () => {
@@ -38,6 +38,6 @@ describe('isJSONSchemaLike()', function () {
     const schema = Schema.oneOf([schemaOne, schemaTwo]);
 
     const actual = Schema.isJSONSchemaLike(schema);
-    expect(actual).to.eql(true);
+    expect(actual).toEqual(true);
   });
 });

@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import * as Schema from '../../src/';
+import { describe, expect, it } from 'vitest';
+import * as Schema from '../../src/index';
 
 describe('mergeWith()', function () {
   it('should return a merged object schema', () => {
@@ -20,7 +20,7 @@ describe('mergeWith()', function () {
 
     const merged = Schema.mergeWith(fooSchema, barSchema);
 
-    expect(merged).to.deep.equal({
+    expect(merged).toEqual({
       type: ['object', 'null'],
       required: ['foo', 'bar'],
       additionalProperties: true,

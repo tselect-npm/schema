@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import * as Schema from '../../src/';
+import { describe, expect, it } from 'vitest';
+import * as Schema from '../../src/index';
 import { JSONSchemaType } from '../../src/constants/json-schema-type';
 
 describe('allOf()', () => {
@@ -7,7 +7,7 @@ describe('allOf()', () => {
     expect(Schema.allOf([
       { type: 'integer' as JSONSchemaType },
       { type: 'string' as JSONSchemaType },
-    ])).to.deep.equal({
+    ])).toEqual({
       allOf: [{
         type: 'integer',
       }, {

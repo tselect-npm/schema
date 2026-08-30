@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import * as Schema from '../../src/';
+import { describe, expect, it } from 'vitest';
+import * as Schema from '../../src/index';
 
 describe('cloneWith()', function () {
   it('should return a cloned object schema', () => {
@@ -17,7 +17,7 @@ describe('cloneWith()', function () {
 
     const cloned = Schema.cloneWith(fooSchema, barSchema);
 
-    expect(cloned).to.deep.equal({
+    expect(cloned).toEqual({
       type: ['object', 'null'],
       required: ['foo'],
       additionalProperties: true,
@@ -40,7 +40,7 @@ describe('cloneWith()', function () {
 
     const cloned = Schema.cloneWith(fooSchema, barSchema);
 
-    expect(cloned).to.deep.equal({
+    expect(cloned).toEqual({
       type: 'string',
       maxLength: 15,
       minLength: 10,

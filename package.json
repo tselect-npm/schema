@@ -22,8 +22,9 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "test": "mocha -r ts-node/register -r test/setup.ts --recursive test/**/*.test.ts",
-    "cov": "nyc npm test",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "cov": "vitest run --coverage",
     "lint": "tslint --project ./",
     "fix": "tslint --fix --project ./",
     "typecheck": "tsc --noEmit",
@@ -48,17 +49,13 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.9",
-    "ajv": "^6.12.6",
     "@types/lodash": "^4.14.200",
-    "@types/mocha": "5.2.3",
     "@types/node": "22.20.1",
-    "chai": "^4.3.10",
-    "mocha": "^10.2.0",
-    "nyc": "15.1.0",
-    "ts-node": "^9.1.1",
+    "@vitest/coverage-v8": "^4.1.10",
+    "ajv": "^8.17.1",
     "tsdown": "^0.22.14",
     "tslint": "6.1.3",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
   }
 }

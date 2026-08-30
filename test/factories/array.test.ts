@@ -1,17 +1,17 @@
-import { expect } from 'chai';
-import * as Schema from '../../src/';
+import { describe, expect, it } from 'vitest';
+import * as Schema from '../../src/index';
 
 describe('array()', function () {
   it('should create an array schema with no options', () => {
     const schema = Schema.array();
-    expect(schema).to.deep.equal({
+    expect(schema).toEqual({
       type: 'array',
       additionalItems: false
     });
   });
   it('should create a nullable array schema', () => {
     const schema = Schema.array({ nullable: true });
-    expect(schema).to.deep.equal({
+    expect(schema).toEqual({
       type: ['array', 'null'],
       additionalItems: false
     });
@@ -24,7 +24,7 @@ describe('array()', function () {
       minItems: 1,
       uniqueItems: true
     });
-    expect(schema).to.deep.equal({
+    expect(schema).toEqual({
       type: 'array',
       additionalItems: true,
       items: { type: 'string' },
