@@ -14,12 +14,6 @@ importers:
       '@bluejay/utils':
         specifier: ^4.0.0
         version: 4.0.0
-      '@types/ajv':
-        specifier: ^1.0.0
-        version: 1.0.4
-      ajv:
-        specifier: ^6.12.6
-        version: 6.15.0
       lodash:
         specifier: ^4.17.21
         version: 4.18.1
@@ -36,6 +30,9 @@ importers:
       '@types/node':
         specifier: 12.7.0
         version: 12.7.0
+      ajv:
+        specifier: ^6.12.6
+        version: 6.15.0
       chai:
         specifier: ^4.3.10
         version: 4.5.0
@@ -153,10 +150,6 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
-
-  '@types/ajv@1.0.4':
-    resolution: {integrity: sha512-hq9s/qlTIJ2KYjs9MDt/ALvO7g/xIfGsVr2kjuNYLC52TieBkKAIQr7Fhk7jiQfmRXLQawY4nVgc/7wvxHow0g==}
-    deprecated: This is a stub types definition. ajv provides its own type definitions, so you do not need this installed.
 
   '@types/chai@4.3.20':
     resolution: {integrity: sha512-/pC9HAB5I/xMlc5FP77qjCnI16ChlJfW0tGa0IUcFn38VJrTV6DeZ60NU5KZBtaOZqjdpwTWohz5HU1RrhiYxQ==}
@@ -1151,10 +1144,6 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.6.0
-
-  '@types/ajv@1.0.4':
-    dependencies:
-      ajv: 6.15.0
 
   '@types/chai@4.3.20': {}
 

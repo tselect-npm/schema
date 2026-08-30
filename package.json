@@ -30,12 +30,11 @@
   "packageManager": "pnpm@11.21.0",
   "dependencies": {
     "@bluejay/utils": "^4.0.0",
-    "@types/ajv": "^1.0.0",
-    "ajv": "^6.12.6",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@types/chai": "^4.3.9",
+    "ajv": "^6.12.6",
     "@types/lodash": "^4.14.200",
     "@types/mocha": "5.2.3",
     "@types/node": "12.7.0",
