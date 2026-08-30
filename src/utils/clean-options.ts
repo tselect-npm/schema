@@ -1,4 +1,4 @@
-import * as Lodash from 'lodash';
+import Lodash from 'lodash';
 import { TCommonOptions } from '../types/common-options';
 import { TJSONSchema } from '../types/json-schema';
 

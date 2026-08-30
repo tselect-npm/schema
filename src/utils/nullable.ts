@@ -1,11 +1,11 @@
-import * as Utils from '@bluejay/utils';
+import { makeArray } from '@bluejay/utils';
 import { JSONSchemaType } from '../constants/json-schema-type';
 import { TJSONSchema } from '../types/json-schema';
 import { cloneWith } from './clone-with';
 
 export function nullable<T extends TJSONSchema = TJSONSchema>(schema: T, value = true): T {
   if (schema.type) {
-    const baseTypes = <JSONSchemaType[]>Utils.makeArray<JSONSchemaType>(schema.type)
+    const baseTypes = <JSONSchemaType[]>makeArray<JSONSchemaType>(schema.type)
       .filter(type => type !== JSONSchemaType.NULL);
     const types = value ? baseTypes.concat(JSONSchemaType.NULL) : baseTypes;
     if (schema.enum) {

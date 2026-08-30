@@ -1,4 +1,4 @@
-import { TObjectJSONSchema } from '..';
+import type { TObjectJSONSchema } from '../types/object-json-schema';
 import { TJSONSchema } from '../types/json-schema';
 import { clone } from './clone';
 

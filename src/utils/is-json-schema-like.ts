@@ -1,4 +1,4 @@
-import * as Lodash from 'lodash';
+import Lodash from 'lodash';
 import { TJSONSchema } from '../types/json-schema';
 
 export function isJSONSchemaLike(obj: {}): obj is TJSONSchema {

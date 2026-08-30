@@ -4,17 +4,32 @@
   "version": "1.0.0",
   "license": "MIT",
   "author": "Sylvain Estevez",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "test": "mocha -r ts-node/register -r test/setup.ts --recursive test/**/*.test.ts",
     "cov": "nyc npm test",
     "lint": "tslint --project ./",
     "fix": "tslint --fix --project ./",
-    "compile": "tsc",
-    "build": "rm -rf dist && mkdir dist && tsc --noEmit false",
-    "prepack": "npm run build",
-    "prepublishOnly": "npm run lint && npm run cov && npm run build"
+    "typecheck": "tsc --noEmit",
+    "build": "tsdown",
+    "prepack": "pnpm build",
+    "prepublishOnly": "pnpm lint && pnpm cov && pnpm build"
   },
   "files": [
     "dist"
@@ -37,13 +52,13 @@
     "ajv": "^6.12.6",
     "@types/lodash": "^4.14.200",
     "@types/mocha": "5.2.3",
-    "@types/node": "12.7.0",
+    "@types/node": "22.20.1",
     "chai": "^4.3.10",
     "mocha": "^10.2.0",
     "nyc": "15.1.0",
     "ts-node": "^9.1.1",
+    "tsdown": "^0.22.14",
     "tslint": "6.1.3",
-    "typedoc": "^0.25.2",
-    "typescript": "^4.9.5"
+    "typescript": "^7.0.2"
   }
 }

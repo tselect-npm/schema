@@ -1,4 +1,4 @@
-import * as Lodash from 'lodash';
+import Lodash from 'lodash';
 import { TObjectJSONSchema } from '../types/object-json-schema';
 import { clone } from './clone';
 

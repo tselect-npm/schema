@@ -1,37 +1,20 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "esnext",
     "target": "es6",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "noEmit": true,
+    "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
     "alwaysStrict": true,
     "pretty": true,
-    "declaration": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "inlineSourceMap": true,
-    "outDir": "dist",
-    "lib": [
-      "es2017"
-    ],
-    "types": [
-      "node",
-      "mocha",
-      "chai"
-    ],
-    "removeComments": true
+    "experimentalDecorators": true,
+    "lib": ["es2017"],
+    "types": ["node"]
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "lib",
-    "./src/utils/clean-options.ts",
-    "./src/utils/make-schema.ts",
-    "./src/utils/nullable.ts"
-  ]
+  "include": ["src", "test"],
+  "exclude": ["node_modules", "lib"]
 }
