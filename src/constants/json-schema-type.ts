@@ -5,5 +5,5 @@ export enum JSONSchemaType {
   INTEGER = 'integer',
   BOOLEAN = 'boolean',
   NULL = 'null',
-  NUMBER = 'number'
+  NUMBER = 'number',
 }

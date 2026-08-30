@@ -1,20 +1,23 @@
 import { describe, expect, it } from 'vitest';
 import * as Schema from '../../src/index';
 
-describe('omitProperties()', function () {
+describe('omitProperties()', () => {
   it('should return a cloned object schema with filtered properties', () => {
-    const schema = Schema.object({ foo: Schema.string(), bar: Schema.string() }, {
-      required: ['bar'],
-      additionalProperties: true
-    });
+    const schema = Schema.object(
+      { foo: Schema.string(), bar: Schema.string() },
+      {
+        required: ['bar'],
+        additionalProperties: true,
+      },
+    );
     const modified = Schema.omitProperties(schema, ['bar']);
     expect(modified).toEqual({
       type: 'object',
       additionalProperties: true,
       required: [],
       properties: {
-        foo: { type: 'string' }
-      }
+        foo: { type: 'string' },
+      },
     });
   });
 

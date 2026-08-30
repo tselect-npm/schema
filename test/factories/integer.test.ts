@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import * as Schema from '../../src/index';
 
-describe('integer()', function () {
+describe('integer()', () => {
   it('should create an integer schema with no options', () => {
     const schema = Schema.integer();
     expect(schema).toEqual({ type: 'integer' });
@@ -16,7 +16,7 @@ describe('integer()', function () {
       minimum: 0,
       maximum: 2,
       exclusiveMinimum: true,
-      exclusiveMaximum: true
+      exclusiveMaximum: true,
     });
     expect(schema).toEqual({
       type: 'integer',
@@ -24,7 +24,7 @@ describe('integer()', function () {
       minimum: 0,
       maximum: 2,
       exclusiveMinimum: true,
-      exclusiveMaximum: true
+      exclusiveMaximum: true,
     });
   });
 });

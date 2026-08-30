@@ -1,5 +1,5 @@
 import Lodash from 'lodash';
-import { TObjectJSONSchema } from '../types/object-json-schema';
+import type { TObjectJSONSchema } from '../types/object-json-schema';
 import { clone } from './clone';
 
 export function pickProperties(schema: TObjectJSONSchema, properties: string[]): TObjectJSONSchema {

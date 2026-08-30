@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import * as Schema from '../../src/index';
 
-describe('requireProperties()', function () {
+describe('requireProperties()', () => {
   it('should return a cloned schema', () => {
     const schema = Schema.object({ foo: Schema.string() });
     expect(Schema.requireProperties(schema, ['foo'])).not.toBe(schema);
@@ -14,8 +14,8 @@ describe('requireProperties()', function () {
       additionalProperties: false,
       required: ['foo'],
       properties: {
-        foo: { type: 'string' }
-      }
+        foo: { type: 'string' },
+      },
     });
   });
   it('should merge new to existing properties', () => {
@@ -27,8 +27,8 @@ describe('requireProperties()', function () {
       required: ['foo', 'bar'],
       properties: {
         foo: { type: 'string' },
-        bar: { type: 'string' }
-      }
+        bar: { type: 'string' },
+      },
     });
   });
   it('should not duplicate properties', () => {
@@ -39,8 +39,8 @@ describe('requireProperties()', function () {
       additionalProperties: false,
       required: ['foo'],
       properties: {
-        foo: { type: 'string' }
-      }
+        foo: { type: 'string' },
+      },
     });
   });
 });

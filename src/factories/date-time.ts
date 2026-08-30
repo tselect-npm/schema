@@ -1,6 +1,6 @@
 import { JSONStringFormat } from '../constants/json-string-format';
-import { TOptions } from '../types/options';
-import { TStringJSONSchema } from '../types/string-json-schema';
+import type { TOptions } from '../types/options';
+import type { TStringJSONSchema } from '../types/string-json-schema';
 import { string } from './string';
 
 export function dateTime(options: TOptions<TStringJSONSchema> = {}): TStringJSONSchema {

@@ -1,18 +1,18 @@
 import { describe, expect, it } from 'vitest';
 import * as Schema from '../../src/index';
 
-describe('string()', function () {
+describe('string()', () => {
   it('should create a string schema with no options', () => {
     const schema = Schema.string();
     expect(schema).toEqual({
-      type: 'string'
+      type: 'string',
     });
   });
 
   it('should create a nullable string schema', () => {
     const schema = Schema.string({ nullable: true });
     expect(schema).toEqual({
-      type: ['string', 'null']
+      type: ['string', 'null'],
     });
   });
 
@@ -21,7 +21,7 @@ describe('string()', function () {
       maxLength: 20,
       minLength: 10,
       pattern: '^\\d+$',
-      format: Schema.JSONStringFormat.DATE_TIME
+      format: Schema.JSONStringFormat.DATE_TIME,
     });
 
     expect(schema).toEqual({
@@ -29,7 +29,7 @@ describe('string()', function () {
       maxLength: 20,
       minLength: 10,
       pattern: '^\\d+$',
-      format: 'date-time'
+      format: 'date-time',
     });
   });
 });

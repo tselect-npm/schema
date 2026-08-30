@@ -1,43 +1,45 @@
 import { describe, expect, it } from 'vitest';
+import type { JSONSchemaType } from '../../src/constants/json-schema-type';
 import * as Schema from '../../src/index';
-import { JSONSchemaType } from '../../src/constants/json-schema-type';
 
-describe('nullable()', function () {
+describe('nullable()', () => {
   it('should handle an anyOf JSONSchema', () => {
-    const schema = Schema.anyOf([
-      { type: 'integer' as JSONSchemaType },
-      { type: 'string' as JSONSchemaType },
-    ]);
+    const schema = Schema.anyOf([{ type: 'integer' as JSONSchemaType }, { type: 'string' as JSONSchemaType }]);
 
     const actual = Schema.nullable(schema);
 
     expect(actual).toEqual({
-      anyOf: [{
-        type: 'integer',
-      }, {
-        type: 'string',
-      }, {
-        type: 'null',
-      }]
+      anyOf: [
+        {
+          type: 'integer',
+        },
+        {
+          type: 'string',
+        },
+        {
+          type: 'null',
+        },
+      ],
     });
   });
 
   it('should handle an oneOf JSONSchema', () => {
-    const schema = Schema.oneOf([
-      { type: 'integer' as JSONSchemaType },
-      { type: 'string' as JSONSchemaType },
-    ]);
+    const schema = Schema.oneOf([{ type: 'integer' as JSONSchemaType }, { type: 'string' as JSONSchemaType }]);
 
     const actual = Schema.nullable(schema);
 
     expect(actual).toEqual({
-      oneOf: [{
-        type: 'integer',
-      }, {
-        type: 'string',
-      }, {
-        type: 'null',
-      }]
+      oneOf: [
+        {
+          type: 'integer',
+        },
+        {
+          type: 'string',
+        },
+        {
+          type: 'null',
+        },
+      ],
     });
   });
 
@@ -48,7 +50,7 @@ describe('nullable()', function () {
 
     expect(actual).toEqual({
       enum: ['foo', 'bar', null],
-      type: ['string', 'null']
+      type: ['string', 'null'],
     });
   });
 

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { toStringRegExp } from '../../src/utils/to-string-reg-exp';
 
-describe('toStringRegExp()', function () {
+describe('toStringRegExp()', () => {
   it('should convert regexp to string', () => {
     expect(toStringRegExp(/^\d+$/)).toBe('^\\d+$');
   });
